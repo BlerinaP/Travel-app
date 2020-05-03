@@ -1,0 +1,67 @@
+body{
+    background-image: url("../media/travel2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+div.container{
+    padding-top: 15vh;
+    display: flex;
+    justify-content: space-evenly;
+}
+/*Section where we search*/
+section.searchpart{
+    display:block;
+    line-height: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    padding: 100px 100px 0px 100px;
+    background-color: rgba(69, 69, 69, 0.67);
+}
+
+.searchpart label{
+    color: black;
+    font-style: bold;
+    font-size: 30px;
+}
+button{
+    font-size: 20px;
+    border: 1px solid black;
+    padding: 10px;
+}
+button:hover{
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+input{
+    font-size: 20px;
+    margin-left: 15px;
+}
+/*Section of results*/
+p{
+    color: white;
+    font-size: 16px;
+    font-style: bold;
+
+}
+img#img{
+    width: 30vw;
+    height: 30vh;
+}
+div.result{
+    display: flex;
+    justify-content: space-around;
+}
+div.infos{
+    padding-left: 10%;
+    line-height: 26px;
+}
+section.resultpart{
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    padding: 100px 100px 0px 100px;
+    background-color: rgba(69, 69, 69, 0.67);
+}
+button.book{
+    text-align: center;
+    margin: 10px 10px 10px 18%;
+}

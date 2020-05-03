@@ -3,33 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Travel App</title>
+    <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
 <div class="container">
 
-    <section class="city">
+    <section class="searchpart">
             <label>Where you gonna Travel</label>
-            <input id="city" type="text" value="" name="city" placeholder="city">
-            <label>Enter City Name</label>
-            <input id="date" type="date" value="" placeholder="date" name="date">
+            <input id="city" type="text" value="" name="city" placeholder="City/Country"><br/>
+            <label>Leaving Date</label>
+            <input id="leaving" type="date" value="" placeholder="date" name="date"><br/>
+            <label>Returning Date</label>
+             <input id="returning" type="date" value="" placeholder="date" name="date"><br/>
             <button class="continue">Continue</button>
     </section>
-    <section class="result">
-        <div>
-            <h1>Country</h1>
-            <h2 id="country"></h2>
-            <h1>City</h1>
-            <h2 id="place"></h2>
-            <h1>MinTemp</h1>
-            <h2 id="mintemp"></h2>
-            <h1>MaxTemp</h1>
-            <h2 id="maxtemp"></h2>
-            <h1>Description</h1>
-            <h2 id="description"></h2>
-            <h1>Date</h1>
-            <h2 id="datee"></h2>
-            <div class="img"></div>
+    <section class="resultpart">
+            <div class="containerImg">
+                <img id="img" />
+            </div>
+        <div class="result">
+           <div class="titles">
+            <h3>Country:</h3>
+            <h3>City:</h3>
+            <h3>Weather:</h3>
+            <h3>Description:</h3>
+            <h3>Leaving Date:</h3>
+            <h3>Returning Date:</h3>
         </div>
+        <div class="infos">
+            <p id="country"></p>
+            <p id="place"></p>
+            <p id="weather"></p>
+            <p id="description"></p>
+            <p id="leavingdate"></p>
+            <p id="returningdate"></p>
+        </div>
+        </div>
+        <button class="book">Book Now</button>
     </section>
 </div>
 

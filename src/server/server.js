@@ -22,8 +22,12 @@ app.post('/forecast', async(req, res)=>{
    alldata.maxTemp = body.maxTemp;
    alldata.description = body.description;
    alldata.country = body.country;
-   alldata.city = body.city;
+   alldata.cityName = body.cityName;
+   alldata.dateLeaving = body.dateLeaving;
+   alldata.dateReturning = body.dateReturning;
+   alldata.picture = body.picture;
    console.log(body);
+   res.end();
 });
 
 app.get('/save', async(req, res)=>{

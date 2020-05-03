@@ -17,7 +17,9 @@ document.querySelector('.continue').addEventListener('click', mainFunction);
 
 async function mainFunction(e){
     const location = document.getElementById('city').value;
-    const date = document.getElementById('date').value;
+    const dateLeaving = document.getElementById('leaving').value;
+    const dateReturning = document.getElementById('returning').value;
+    const img = document.getElementById('img');
 
      const coordinates = await getData(geonamesUrl + location + conUrl + '&username=' + username);
      const lat = coordinates.geonames[0].lat;
@@ -26,7 +28,7 @@ async function mainFunction(e){
      const weather = await getData(weatherUrl + 'lon=' + lng + '&key=' + key + '&lat=' + lat);
      const picture = await getData(pixabayUrl + 'key=' + pixkey + '&q=' + location + url);
 
-       await postData('/forecast',
+         return postData('/forecast',
           {
             minTemp: weather.data[0].min_temp,
             maxTemp:weather.data[0].max_temp,
@@ -34,19 +36,29 @@ async function mainFunction(e){
             country: coordinates.geonames[0].countryName,
             cityName: coordinates.geonames[0].toponymName,
             picture: picture.hits[0].largeImageURL,
-            date: date,
-         });
+            dateLeaving: dateLeaving,
+            dateReturning: dateReturning
+         })
 
-         await function(update){
-           document.getElementById('country').innerText = update.country;
-           document.getElementById('place').innerHTML = update.cityName;
-           document.getElementById('mintemp').innerHTML = update.minTemp;
-           document.getElementById('maxtemp').innerHTML = update.maxTemp;
-           document.getElementById('description').innerHTML = update.description;
-           document.getElementById('datee').innerHTML = update.date;
-           document.getElementById('img').innerHTML = update.picture;
+          .then(
+              function(response){
+               return getData('/save');
+             }
+           )
 
-         }
+          .then (
+            function(update){
+            const weather = `Min Temperature: ${update.minTemp}C - Max temperature: ${update.maxTemp}C`;
+            document.getElementById('weather').innerHTML = weather;
+            document.getElementById('country').innerText = update.country;
+            document.getElementById('place').innerHTML = update.cityName;
+            document.getElementById('description').innerHTML = update.description;
+            document.getElementById('leavingdate').innerHTML = update.dateLeaving;
+            document.getElementById('returningdate').innerHTML = update.dateReturning;
+            img.setAttribute('src', `${update.picture}`);
+
+        }
+    );
 
 }
 
@@ -65,9 +77,9 @@ const getData = async(url = '')=>{
     }
 };
 
-const postData = async (url = '', data = {})=>{
+const postData = async (url = '', data = {}) => {
     console.log(data);
-    const response = await fetch(url, {
+        await fetch(url, {
         method: 'POST',
         credentials: 'same-origin',
         headers: {
@@ -75,13 +87,4 @@ const postData = async (url = '', data = {})=>{
         },
         body: JSON.stringify(data),
     });
-
-    try {
-        const newData = await response.json();
-        console.log(newData);
-        return newData;
-
-    }catch(err) {
-        console.log(err);
-    }
 };
