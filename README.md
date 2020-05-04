@@ -28,6 +28,18 @@ To run project in development environment
 To run project in production environment
 - npm run build-prod
 
+##Ways to extend the project
+
+
+- Allow user to add multiple destinations on the same trip.
+- Allow the user to add hotel and/or flight data.
+- Multiple places to stay. Multiple flights.
+- Use Local Storage to save the data so that when they close, then revisit the page, their information is still there.
+- Instead of just pulling a single day forecast, pull the forecast for multiple days.
+- Incorporate icons into forecast.
+- Allow user to Print their trip and/or export to PDF.
+- Allow the user to add a todo list and/or packing list for their trip.
+
 ##Skills needed to build this project
 - HTML5/CSS3
 
