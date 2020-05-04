@@ -12,8 +12,10 @@ const pixabayUrl = 'https://pixabay.com/api/?';
 const pixkey = '16331258-98682fe7be2b155c1aff8736a';
 const url = '&image_type=photo&pretty=true&category=places';
 
-//Event Listener to show resulsts
-document.querySelector('.continue').addEventListener('click', mainFunction);
+
+document.addEventListener('DOMContentLoaded', function(){
+    document.querySelector('.continue').addEventListener('click', mainFunction);
+});
 
 //Main function to do the api requests
 export async function mainFunction(e){
