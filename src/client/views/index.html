@@ -2,13 +2,17 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="Blerina Pllana">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Travel App</title>
-    <link rel="stylesheet" href="../styles/main.css">
+
 </head>
 <body>
 <div class="container">
 
     <section class="searchpart">
+        <h1>Travel Agency</h1>
             <label>Where you gonna Travel</label>
             <input id="city" type="text" value="" name="city" placeholder="City/Country"><br/>
             <label>Leaving Date</label>
@@ -44,8 +48,15 @@
         <button class="book">Book Now</button>
     </section>
 </div>
-
-<script src="../js/requests.js"></script>
+<script>
+    // Check that service workers are supported
+    if ('serviceWorker' in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js');
+        });
+    }
+</script>
 </body>
 
 </html>

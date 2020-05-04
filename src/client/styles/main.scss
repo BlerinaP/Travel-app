@@ -9,16 +9,27 @@ div.container{
     display: flex;
     justify-content: space-evenly;
 }
-/*Section where we search*/
+
+/*Section where we search the city/place*/
 section.searchpart{
     display:block;
     line-height: 50px;
     border: 1px solid rgba(0, 0, 0, 0.6);
-    padding: 100px 100px 0px 100px;
+    padding: 30px 100px 0px 100px;
     background-color: rgba(69, 69, 69, 0.67);
     padding-bottom: 30px;
 }
-
+h1{
+    font-size: 35px;
+    font-style: bold;
+    font-family: "Roboto Light";
+    color: rgba(24, 24, 24, 0.84);
+    text-shadow: #808080;
+    border: 1px solid grey;
+    background-color: lightblue;
+    padding: 10px;
+    text-align: center;
+}
 .searchpart label{
     color: black;
     font-style: bold;
@@ -38,6 +49,9 @@ input{
     font-size: 20px;
     margin-left: 15px;
 }
+
+
+
 /*Section of results*/
 p{
     color: white;
@@ -68,4 +82,8 @@ button.book{
 }
 .hide{
     display: none;
+}
+
+.red{
+    color: red;
 }
