@@ -16,6 +16,7 @@ section.searchpart{
     border: 1px solid rgba(0, 0, 0, 0.6);
     padding: 100px 100px 0px 100px;
     background-color: rgba(69, 69, 69, 0.67);
+    padding-bottom: 30px;
 }
 
 .searchpart label{
@@ -64,4 +65,7 @@ section.resultpart{
 button.book{
     text-align: center;
     margin: 10px 10px 10px 18%;
+}
+.hide{
+    display: none;
 }

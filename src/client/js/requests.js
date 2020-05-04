@@ -15,8 +15,12 @@ const url = '&image_type=photo&pretty=true&category=places';
 
 document.querySelector('.continue').addEventListener('click', mainFunction);
 
+
 async function mainFunction(e){
     const location = document.getElementById('city').value;
+    if(!location){
+        return alert('You must add a city/country');
+    }
     const dateLeaving = document.getElementById('leaving').value;
     const dateReturning = document.getElementById('returning').value;
     const img = document.getElementById('img');
@@ -27,7 +31,8 @@ async function mainFunction(e){
 
      const weather = await getData(weatherUrl + 'lon=' + lng + '&key=' + key + '&lat=' + lat);
      const picture = await getData(pixabayUrl + 'key=' + pixkey + '&q=' + location + url);
-
+     document.querySelector('.resultpart').classList.remove('hide');
+        //posting data in server
          return postData('/forecast',
           {
             minTemp: weather.data[0].min_temp,
@@ -40,12 +45,13 @@ async function mainFunction(e){
             dateReturning: dateReturning
          })
 
+            //Getting data from /save
           .then(
               function(response){
                return getData('/save');
              }
            )
-
+            //Updating Ui
           .then (
             function(update){
             const weather = `Min Temperature: ${update.minTemp}C - Max temperature: ${update.maxTemp}C`;
@@ -55,10 +61,15 @@ async function mainFunction(e){
             document.getElementById('description').innerHTML = update.description;
             document.getElementById('leavingdate').innerHTML = update.dateLeaving;
             document.getElementById('returningdate').innerHTML = update.dateReturning;
+
+            if(!update.picture){
+                img.src="https://unsplash.com/photos/uE2T1tCFsn8";
+            }
             img.setAttribute('src', `${update.picture}`);
 
         }
     );
+
 
 }
 
@@ -79,7 +90,7 @@ const getData = async(url = '')=>{
 
 const postData = async (url = '', data = {}) => {
     console.log(data);
-        await fetch(url, {
+       const response = await fetch(url, {
         method: 'POST',
         credentials: 'same-origin',
         headers: {
@@ -87,4 +98,13 @@ const postData = async (url = '', data = {}) => {
         },
         body: JSON.stringify(data),
     });
+    try {
+        const newData = await response.json();
+        console.log(newData);
+        return newData;
+
+    }catch(err) {
+        console.log(err);
+    }
 };
+

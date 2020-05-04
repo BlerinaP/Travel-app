@@ -27,7 +27,9 @@ app.post('/forecast', async(req, res)=>{
    alldata.dateReturning = body.dateReturning;
    alldata.picture = body.picture;
    console.log(body);
-   res.end();
+    const jsonData = JSON.parse('{"response": "POST received"}');
+    res.send(jsonData);
+    console.log(jsonData);
 });
 
 app.get('/save', async(req, res)=>{
