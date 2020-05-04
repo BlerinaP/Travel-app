@@ -15,9 +15,8 @@ section.searchpart{
     display:block;
     line-height: 50px;
     border: 1px solid rgba(0, 0, 0, 0.6);
-    padding: 30px 100px 0px 100px;
+    padding: 30px 100px 30px 100px;
     background-color: rgba(69, 69, 69, 0.67);
-    padding-bottom: 30px;
 }
 h1{
     font-size: 35px;
@@ -48,6 +47,12 @@ button:hover{
 input{
     font-size: 20px;
     margin-left: 15px;
+}
+input#leaving{
+    margin-left: 32px;
+}
+input#returning{
+    margin-left: 13px;
 }
 
 
@@ -86,4 +91,52 @@ button.book{
 
 .red{
     color: red;
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 900px) {
+    section.searchpart {
+        padding: 10px;
+        display: inline;
+        background: transparent;
+        border: none;
+    }
+    h1{
+        font-size: 20px;
+        font-style: bold;
+        font-family: "Roboto Light";
+        color: rgba(24, 24, 24, 0.84);
+        text-shadow: #808080;
+        border: 1px solid grey;
+        background-color: lightblue;
+        padding: 5px;
+        text-align: center;
+    }
+    .searchpart label{
+        font-size: 20px;
+        border: 1px solid black;
+        padding: 5px;
+        background-color: rgba(253, 164, 82, 0.65);
+    }
+    input{
+        font-size: 15px;
+        margin: 0px;
+    }
+    input#leaving{
+        margin-left: 30px;
+    }
+    input#returning{
+        margin-left: 15px;
+    }
+   div.container{
+       padding-top: 10vh;
+       display: block;
+   }
+    img#img{
+        width: 80vw;
+        height: 40vh;
+        object-fit: cover;
+
+    }
+    section.resultpart{
+        padding: 20px;
+    }
 }

@@ -1,3 +1,4 @@
+
 //COORDINATES
 const geonamesUrl = 'http://api.geonames.org/searchJSON?q=';
 const conUrl = '&maxRows=10';
@@ -13,9 +14,7 @@ const pixkey = '16331258-98682fe7be2b155c1aff8736a';
 const url = '&image_type=photo&pretty=true&category=places';
 
 
-document.addEventListener('DOMContentLoaded', function(){
-    document.querySelector('.continue').addEventListener('click', mainFunction);
-});
+
 
 //Main function to do the api requests
 export async function mainFunction(e){
@@ -90,7 +89,7 @@ export async function mainFunction(e){
 }
 
 //Helper functions to get data and post data from an api.
- const getData = async(url = '')=>{
+export const getData = async(url = '')=>{
     const response = await fetch(url);
     if(response.status === 404){
         alert('Error');
@@ -100,12 +99,12 @@ export async function mainFunction(e){
         return data;
 
     }catch(err){
-        console.log(err);
+        alert(err);
     }
 };
 
 //Helper function to post the data in server
- const postData = async (url = '', data = {}) => {
+ export const postData = async (url = '', data = {}) => {
     console.log(data);
        const response = await fetch(url, {
         method: 'POST',

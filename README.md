@@ -14,8 +14,12 @@ Pixabay API request is used to show an image of the country/city we are searchin
 ##How to start this project
 - npm install
 
+Server runs in localhost:5000
+
 To run the server
-- npm run server 
+- npm run start
+
+Development environment runs in localhost:8001
 
 To run project in development environment
 - npm run server
