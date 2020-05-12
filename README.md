@@ -1,4 +1,4 @@
-##Description
+# Description
 This project is a travel app which use 3 different API.
 - Geonames Api
 - Weatherbit
@@ -11,7 +11,7 @@ and to show weather forecast in that country/city.
 
 Pixabay API request is used to show an image of the country/city we are searching for.
 
-##How to start this project
+# How to start this project
 - npm install
 
 Server runs in localhost:5000
@@ -28,7 +28,7 @@ To run project in development environment
 To run project in production environment
 - npm run build-prod
 
-##Ways to extend the project
+# Ways to extend the project
 
 
 - Allow user to add multiple destinations on the same trip.
@@ -40,7 +40,7 @@ To run project in production environment
 - Allow user to Print their trip and/or export to PDF.
 - Allow the user to add a todo list and/or packing list for their trip.
 
-##Skills needed to build this project
+# Skills needed to build this project
 - HTML5/CSS3
 
 - Java Script
